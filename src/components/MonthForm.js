@@ -1,12 +1,10 @@
-import React, {useState} from "react";
-import onMonthChange from "./MarketControl";
+import React from "react";
 
 function MonthForm(props) {
   const handleSelectChange = (event) => {
     props.onMonthChange(event.target.value);
-    console.log(event.target.value);
   };
-  // debugger;
+
   return (
     <React.Fragment>
       <h3>View Monthy Produce</h3>
@@ -25,8 +23,6 @@ function MonthForm(props) {
         <option value="November">November</option>
         <option value="December">December</option>
       </select>
-      {/* <button type="onClick">Submit</button> */}
-      {/* {props.selectedMonth && <p>You Selected: {props.selectedMonth}</p>} */}
     </React.Fragment>
   )
 }

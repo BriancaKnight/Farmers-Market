@@ -1,6 +1,5 @@
-import React from "react";
-import DaySelector from "./DaySelector";
-import NewDayForm from "./NewDayForm";
+// import React from "react";
+import PropTypes from "prop-types";
 
 const marketSchedule = [
   {
@@ -41,19 +40,13 @@ const marketSchedule = [
   }
 ]
 
-function MarketSchedule() {
-  return (
-    <React.Fragment>
-      {marketSchedule.map((dayOfWeek, index) =>
-       ( <NewDayForm dayOfWeek={dayOfWeek.day}
-          location={dayOfWeek.location}
-          hours={dayOfWeek.hours}
-          booth={dayOfWeek.booth}
-          key={index} />)
-      )}
-    </React.Fragment>
-  );
+marketSchedule.propTypes = {
+  day: PropTypes.string,
+  location: PropTypes.string,
+  hours: PropTypes.string,
+  booth: PropTypes.string
 }
 
-export default MarketSchedule; 
+
+export default marketSchedule; 
 

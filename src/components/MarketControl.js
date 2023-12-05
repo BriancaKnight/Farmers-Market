@@ -1,33 +1,36 @@
 import React from 'react';
-import MarketSchedule from './MarketSchedule';
+import marketSchedule from './MarketSchedule';
 import { availableProduce } from "./SeasonalProduce";
 import MonthForm from './MonthForm';
-
-
-// const monthList = [{ selectedMonth: "January" }, { selectedMonth: "February" }, { selectedMonth: "March" }, { selectedMonth: "April" }, { selectedMonth: "May" }, { selectedMonth: "June" }, { selectedMonth: "July" }, { selectedMonth: "August" }, { selectedMonth: "September" }, { selectedMonth: "October" }, { selectedMonth: "November" }, { selectedMonth: "December" }];
-
+import NewDayForm from './NewDayForm';
 
 class MarketControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      selectedMonth: ''
+      selectedMonth: '',
+      selectedDay: ''
     };
   }
+
+  handleDayChange = (newDay) =>
+    this.setState({ selectedDay: newDay });
 
   handleMonthChange = (newMonth) =>
     this.setState({ selectedMonth: newMonth });
 
   render() {
-    const { selectedMonth } = this.state;
+    const { selectedMonth, selectedDay } = this.state;
     const selectedProduce = availableProduce.find(month => month.month === selectedMonth);
-
+    const selectedSchedule = marketSchedule.find(schedule => schedule.day === selectedDay);
 
     return (
       < React.Fragment >
         <MonthForm
-         onMonthChange={this.handleMonthChange} />
+          onMonthChange={this.handleMonthChange} />
+        <NewDayForm
+          onDayChange={this.handleDayChange} />
         {selectedProduce && (
           <div>
             <h2>{selectedProduce.month}</h2>
@@ -38,15 +41,19 @@ class MarketControl extends React.Component {
             </ul>
           </div>
         )}
-        {/* <button onClick={this.handleClick}>Choose Month</button> */}
-        {/* <MarketSchedule /> */}
+
+        {selectedSchedule && (
+          <div>
+            <h2>{selectedSchedule.day}</h2>
+            <p>Location: {selectedSchedule.location}</p>
+            <p>Hours: {selectedSchedule.hours}</p>
+            <p>Booth: {selectedSchedule.booth}</p>
+          </div>
+        )}
       </React.Fragment >
-      // <React.Fragment></React.Fragment>
     );
   }
 }
-
-
 
 export default MarketControl
 

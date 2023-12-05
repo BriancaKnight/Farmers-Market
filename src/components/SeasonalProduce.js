@@ -1,6 +1,5 @@
-import React from "react";
+// import React from "react";
 import PropTypes from "prop-types";
-// import MonthSelector from "./MonthlyProduce";
 
 const availableProduce = [
    {
@@ -271,27 +270,10 @@ const availableProduce = [
    }
 ];
 
-// function Month() {
-//    return (
-//       <div>
-//          {availableProduce.map((month) => (//div and fragment are interchangeable. can use <></> instead of react.fragment unless you need key
-//             <div key={month.month}>
-//                <h2>{month.month}</h2>
-//                <ul>
-//                   {month.selection.map((produce) => (
-//                      <li key={month.month + produce}>{produce}</li>
-//                   ))}
-//                </ul>
-//             </div>
-//          ))}
-//       </div>
-//    );
-// }
-
 availableProduce.propTypes = {
    month: PropTypes.string,
    selection: PropTypes.string
 }
 
-// export {Month};
 export {availableProduce};
+
