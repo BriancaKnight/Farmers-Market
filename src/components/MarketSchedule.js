@@ -1,4 +1,6 @@
 import React from "react";
+import DaySelector from "./DaySelector";
+import NewDayForm from "./NewDayForm";
 
 const marketSchedule = [
   {
@@ -43,14 +45,15 @@ function MarketSchedule() {
   return (
     <React.Fragment>
       {marketSchedule.map((dayOfWeek, index) =>
-        <Day dayOfWeek={dayOfWeek.day}
+       ( <NewDayForm dayOfWeek={dayOfWeek.day}
           location={dayOfWeek.location}
           hours={dayOfWeek.hours}
           booth={dayOfWeek.booth}
-          key={index} />
+          key={index} />)
       )}
     </React.Fragment>
   );
 }
 
 export default MarketSchedule; 
+
