@@ -271,44 +271,27 @@ const availableProduce = [
    }
 ];
 
-// function Month(props) {
+// function Month() {
 //    return (
-//       <React.Fragment>
-//          {availableProduce.map((month, index) => (
-//             <month={month.month} key={index}>
+//       <div>
+//          {availableProduce.map((month) => (//div and fragment are interchangeable. can use <></> instead of react.fragment unless you need key
+//             <div key={month.month}>
 //                <h2>{month.month}</h2>
 //                <ul>
-//                   {month.selection.map((produce, produceIndex) => (
-//                      <li>
-//                         <produce={month.produce} key={produceIndex} /></li>
+//                   {month.selection.map((produce) => (
+//                      <li key={month.month + produce}>{produce}</li>
 //                   ))}
 //                </ul>
-//             </month=>
+//             </div>
 //          ))}
-//       </React.Fragment>
+//       </div>
 //    );
 // }
 
-function Month() {
-   return (
-      <div>
-         {availableProduce.map((month) => (//div and fragment are interchangeable. can use <></> instead of react.fragment unless you need key
-            <div key={month.month}>
-               <h2>{month.month}</h2>
-               <ul>
-                  {month.selection.map((produce) => (
-                     <li key={month.month + produce}>{produce}</li>
-                  ))}
-               </ul>
-            </div>
-         ))}
-      </div>
-   );
-}
-
-Month.propTypes = {
+availableProduce.propTypes = {
    month: PropTypes.string,
-   produce: PropTypes.string
+   selection: PropTypes.string
 }
 
-export default Month;
+// export {Month};
+export {availableProduce};
